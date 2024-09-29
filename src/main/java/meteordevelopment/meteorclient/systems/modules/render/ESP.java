@@ -266,10 +266,13 @@ public class ESP extends Module {
             }
 
             if (shapeMode.get() != ShapeMode.Sides) {
+                double testh = Math.abs(pos2.y - pos1.y);
+                double testLength = testh;
+                double pos2AdjustedX = pos1.x + testLength;
                 Renderer2D.COLOR.line(pos1.x, pos1.y, pos1.x, pos2.y, lineColor);
-                Renderer2D.COLOR.line(pos2.x, pos1.y, pos2.x, pos2.y, lineColor);
-                Renderer2D.COLOR.line(pos1.x, pos1.y, pos2.x, pos1.y, lineColor);
-                Renderer2D.COLOR.line(pos1.x, pos2.y, pos2.x, pos2.y, lineColor);
+                Renderer2D.COLOR.line(pos2AdjustedX, pos1.y, pos2AdjustedX, pos2.y, lineColor);
+                Renderer2D.COLOR.line(pos1.x, pos1.y, pos2AdjustedX, pos1.y, lineColor);
+                Renderer2D.COLOR.line(pos1.x, pos2.y, pos2AdjustedX, pos2.y, lineColor);
             }
 
             count++;
